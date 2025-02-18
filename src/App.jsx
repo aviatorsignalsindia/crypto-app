@@ -3,17 +3,16 @@ import { Layout } from 'antd';
 const headerStyle = {
   textAlign: 'center',
   color: '#fff',
-  height: 64,
+  height: 60,
   paddingInline: 48,
   lineHeight: '64px',
   backgroundColor: '#4096ff',
 }
 const contentStyle = {
   textAlign: 'center',
-  minHeight: 120,
-  lineHeight: '120px',
+  minHeight: 'calc(100vh - 60px)',
   color: '#fff',
-  backgroundColor: '#0958d9',
+  backgroundColor: '#001529',
 }
 const siderStyle = {
   textAlign: 'center',
