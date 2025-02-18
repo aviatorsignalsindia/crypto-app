@@ -31,11 +31,11 @@ const layoutStyle = {
   overflow: 'hidden',
   width: 'calc(50% - 8px)',
   maxWidth: 'calc(50% - 8px)',
-}
+};
 
 export default function App() {
-  return  (
-    <Layout style={layoutStyle}>
+  return (   
+     <Layout style={layoutStyle}>
     <Header style={headerStyle}>Header</Header>
     <Layout>
       <Sider width="25%" style={siderStyle}>
@@ -45,5 +45,5 @@ export default function App() {
     </Layout>
     <Footer style={footerStyle}>Footer</Footer>
   </Layout>
-  
-)}
+  )
+}
