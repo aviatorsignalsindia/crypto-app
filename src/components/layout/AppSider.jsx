@@ -70,7 +70,7 @@ export default function AppSider ()  {
            <List.Item>
              <span>{item.title}</span>
              <span>
-            {item.withTag && <Tag color={asset.grow ? 'green' : 'red'}>{asset.growPercent}</Tag>}
+            {item.withTag && <Tag color={asset.grow ? 'green' : 'red'}>{asset.growPercent}%</Tag>}
              {item.isPlain && item.value}
              {!item.isPlain && (
               <Typography.Text type={asset.grow ? 'success' : 'danger'}>
