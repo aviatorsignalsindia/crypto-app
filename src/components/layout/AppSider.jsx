@@ -56,8 +56,7 @@ export default function AppSider ()  {
 
     <Layout.Sider width="25%" style={siderStyle}>
       {assets.map(asset => (
-
-         <Card style={{marginBottom: `1rem`}}>
+         <Card key={asset.id} style={{marginBottom: `1rem`}}>
          <Statistic 
           title="Active"
           value={11.28}
