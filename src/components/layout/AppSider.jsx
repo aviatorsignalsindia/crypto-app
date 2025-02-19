@@ -8,15 +8,6 @@ const siderStyle = {
     padding: '1rem',
   }
 
-  const data = [
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Man charged over missing wedding girl.',
-    'Los Angeles battles huge wildfires.',
-  ]
-
-
 
 export default function AppSider ()  {
   const [loading, setLoading] = useState (false)  
@@ -65,15 +56,20 @@ export default function AppSider ()  {
             color: asset.grow ? '#3f8600' : '#cf1322',
           }}
           prefix={asset.grow ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
-          suffix="%"
+          suffix="$"
          />
        
        <List
          size="small"
-         dataSource={data}
+         dataSource={[
+           {title: 'Total Profit', value: asset.totalProfit},
+           {title: 'Asset Amount', value: asset.amount},
+           {title: 'Difference', value: asset.growPercent },
+         ]}
          renderItem={(item) => (
            <List.Item>
-             <Typography.Text mark>[ITEM]</Typography.Text> {item}
+             <span>{item.title}</span>
+             <span>{item.value}</span>
          </List.Item>
          )}
        />
