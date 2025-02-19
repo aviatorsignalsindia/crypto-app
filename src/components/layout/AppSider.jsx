@@ -1,43 +1,16 @@
 import { Layout, Card, Statistic, List, Typography, Spin, Tag } from 'antd'
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons'
-import { useState, useEffect } from 'react'
-import { fakeFetchCrypto, fakeFetchAssets } from '../../api'
-import { percentDifference, capitalize} from '../../utils'
+import { capitalize } from '../../utils'
+import { useContext } from 'react'
+import  CryptoContext  from '../../content/crypto-context'
+
 
 const siderStyle = {
     padding: '1rem',
   }
 
-
 export default function AppSider ()  {
-  const [loading, setLoading] = useState (false)  
-  const [crypto, setCrypto] = useState([])
-  const [assets, setAssets] = useState([])
-  
-  useEffect(() => {
-      async function preload() {
-        setLoading(true)
-        const { result } = await fakeFetchCrypto()
-        const assets = await fakeFetchAssets()
-
-        setAssets(assets.map(asset => {
-          const coin = result.find((c) => c.id == asset.id)
-          return {
-            grow: asset.price < coin.price,
-            growPercent: percentDifference(asset.price, coin.price), // boolean
-            totalAmount: asset.amount * coin.price,
-            totalProfit: asset.amount * coin.price - asset.amount + asset.
-            price, 
-            ... asset
-            }
-        
-        }))
-        setCrypto(result)
-        setLoading(false)
-      }
-      preload()
-  }, [])
-  
+  const {loading, assets } = useContext(CryptoContext)
   if (loading) {
     return       <Spin fullscreen />
 
@@ -67,7 +40,7 @@ export default function AppSider ()  {
           //  {title: 'Difference', value: asset.growPercent },
          ]}
          renderItem={(item) => (
-           <List.Item>
+           <List.Item >
              <span>{item.title}</span>
              <span>
             {item.withTag && <Tag color={asset.grow ? 'green' : 'red'}>{asset.growPercent}%</Tag>}
@@ -83,19 +56,7 @@ export default function AppSider ()  {
        />
      </Card>
   ))}
-     
-      {/* <Card>
-        <Statistic 
-           title="Idle"
-           value={9.3}
-           precision={2}
-           valueStyle={{
-             color: '#cf1322',
-           }} */}
-           {/* prefix={<ArrowDownOutlined />}
-           suffix="%"
-        />
-      </Card> */}
     </Layout.Sider>
     )
 }
+
