@@ -27,7 +27,15 @@ export default function AppSider ()  {
         const { result } = await fakeFetchCrypto()
         const assets = await fakeFetchAssets()
 
-        setAssets(assets)
+        setAssets(assets.map(asset => {
+          const coin = result.find((c) => c.id == asset.id)
+          return {
+            grow: asset.price < coin.price,
+            growPercent: percentDifference(asset.price, coin.price), // boolean
+              ... asset
+            }
+        
+        }))
         setCrypto(result)
         setLoading(false)
       }
