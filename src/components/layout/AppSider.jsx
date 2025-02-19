@@ -16,6 +16,10 @@ const siderStyle = {
     'Los Angeles battles huge wildfires.',
   ]
 
+  function percentDifference (a, b) {
+    return  100 * Math.abs( ( a - b ) / ( (a + b)/2 ) );
+  }
+
 export default function AppSider ()  {
   const [loading, setLoading] = useState (false)  
   const [crypto, setCrypto] = useState([])
