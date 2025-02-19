@@ -2,7 +2,7 @@ import { Layout, Card, Statistic, List, Typography, Spin } from 'antd'
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons'
 import { useState, useEffect } from 'react'
 import { fakeFetchCrypto, fakeFetchAssets } from '../../api'
-
+import {} from '../../utils'
 
 const siderStyle = {
     padding: '1rem',
@@ -16,9 +16,7 @@ const siderStyle = {
     'Los Angeles battles huge wildfires.',
   ]
 
-  function percentDifference (a, b) {
-    return  100 * Math.abs( ( a - b ) / ( (a + b)/2 ) );
-  }
+
 
 export default function AppSider ()  {
   const [loading, setLoading] = useState (false)  
@@ -36,7 +34,10 @@ export default function AppSider ()  {
           return {
             grow: asset.price < coin.price,
             growPercent: percentDifference(asset.price, coin.price), // boolean
-              ... asset
+            totalAmount: asset.amount * coin.price,
+            totalProfit: asset.amount * coin.price - asset.amount + asset.
+            price, 
+            ... asset
             }
         
         }))
