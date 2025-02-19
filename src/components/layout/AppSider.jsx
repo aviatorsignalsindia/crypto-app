@@ -2,7 +2,7 @@ import { Layout, Card, Statistic, List, Typography, Spin, Tag } from 'antd'
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons'
 import { capitalize } from '../../utils'
 import { useContext } from 'react'
-import  CryptoContext  from '../../content/crypto-context'
+import  CryptoContext  from '../../context/crypto-context'
 
 
 const siderStyle = {
