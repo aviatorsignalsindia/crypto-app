@@ -58,13 +58,13 @@ export default function AppSider ()  {
       {assets.map(asset => (
          <Card key={asset.id} style={{marginBottom: `1rem`}}>
          <Statistic 
-          title="Active"
-          value={11.28}
+          title={asset.id}
+          value={asset.totalAmount}
           precision={2}
           valueStyle={{
-            color: '#3f8600',
+            color: asset.grow ? '#3f8600' : '#cf1322',
           }}
-          prefix={<ArrowUpOutlined />}
+          prefix={asset.grow ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
           suffix="%"
          />
        
