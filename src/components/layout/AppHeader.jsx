@@ -40,26 +40,6 @@ const headerStyle = {
       desc: 'Korea (韩国)',
     },
   ];
-  const App = () => (
-    <Select
-      mode="multiple"
-      style={{
-        width: '100%',
-      }}
-      placeholder="select one country"
-      defaultValue={['china']}
-      onChange={handleChange}
-      options={options}
-      optionRender={(option) => (
-        <Space>
-          <span role="img" aria-label={option.data.label}>
-            {option.data.emoji}
-          </span>
-          {option.data.desc}
-        </Space>
-      )}
-    />
-  );
 
 export default function AppHeader () {
 
