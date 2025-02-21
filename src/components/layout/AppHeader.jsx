@@ -1,4 +1,4 @@
-import { Layout, Select, Space } from 'antd';
+import { Layout, Select, Space, Button } from 'antd';
 
 const headerStyle = {
     width: '100%',
@@ -6,7 +6,6 @@ const headerStyle = {
     height: 60,
     padding: '1rem',
     display: 'flex',
-    background: 'white',
     justifyContent: 'space-between',
     alignItems: 'center',
   }
@@ -59,6 +58,9 @@ export default function AppHeader () {
       </Space>
     )}
   />
+
+      <Button type="primary">Add Asset</Button>
+
     </Layout.Header>)
 
 }
