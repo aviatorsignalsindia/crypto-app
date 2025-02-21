@@ -44,17 +44,15 @@ export default function AppHeader () {
 
     return (<Layout.Header style={headerStyle}>
       <Select
-    style={{ width: 250, }}
-    placeholder="select one country"
-    defaultValue={['china']}
-    onChange={handleChange}
+    style={{ 
+      width: 250, 
+    }}
+    value="press / to open"
+    optionLabelProp="label"
     options={options}
     optionRender={(option) => (
       <Space>
-        <span role="img" aria-label={option.data.label}>
-          {option.data.emoji}
-        </span>
-        {option.data.desc}
+        <img /> bitcoin
       </Space>
     )}
   />
