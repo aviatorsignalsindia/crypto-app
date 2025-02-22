@@ -1,4 +1,5 @@
 import { Layout, Select, Space, Button } from 'antd';
+import { useCrypto } from '../../context/crypto-context';
 
 const headerStyle = {
     width: '100%',
@@ -41,7 +42,7 @@ const headerStyle = {
   ];
 
 export default function AppHeader () {
-
+const {} = useCrypto()
     return (<Layout.Header style={headerStyle}>
       <Select
     style={{ 
