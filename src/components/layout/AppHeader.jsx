@@ -57,7 +57,7 @@ const {crypto} = useCrypto()
     }))}
     optionRender={(option) => (
       <Space>
-        <img src={option.data.icon} atl={option.data.label}/> {' '}{option.data.label}
+        <img style={{ width: 20}} src={option.data.icon} atl={option.data.label}/> {' '}{option.data.label}
       </Space>
     )}
   />
