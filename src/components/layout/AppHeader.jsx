@@ -1,4 +1,4 @@
-import { Layout, Select, Space, Button } from 'antd';
+import { Layout, Select, Space, Button, Modal } from 'antd';
 import { useCrypto } from '../../context/crypto-context';
 import { useEffect, useState } from 'react';
 
@@ -14,6 +14,7 @@ const headerStyle = {
 
 export default function AppHeader () {
   const [select, setSelect] = useState(false)
+  const [modal, setModal] = useState(false)
   const {crypto} = useCrypto()
 
   useEffect(() => {
@@ -27,7 +28,7 @@ export default function AppHeader () {
   }, [])
 
     function handleSelect(value) {
-      console.log(value)
+      setModal(true)
     }
 
 
@@ -40,7 +41,6 @@ export default function AppHeader () {
     onSelect={handleSelect}
     onClick={() => setSelect((prev) => !prev)}
     value="press / to open"
-    optionLabelProp="label"
     options={crypto.map(coin =>({
       label: coin.name,
       value: coin.id,
@@ -48,13 +48,27 @@ export default function AppHeader () {
     }))}
     optionRender={(option) => (
       <Space>
-        <img style={{ width: 20}} src={option.data.icon} atl={option.data.label}/> {' '}{option.data.label}
+        <img 
+        style={{ width: 20}} 
+        src={option.data.icon} 
+        atl={option.data.label}/> 
+        {' '}
+        {option.data.label}
       </Space>
     )}
   />
 
       <Button type="primary">Add Asset</Button>
 
+      <Modal  
+      open={modal} 
+      onCancel={() => setModal(false)} 
+      footer = {null}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
     </Layout.Header>)
 
 }
